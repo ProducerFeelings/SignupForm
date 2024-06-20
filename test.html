@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+    margin: 0;
+    background-color: black;
+    position: relative;
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 45%;
+    height: 100vh;
+    background-image: url('/power rangers background.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left;
+}
+
+.white-background {
+    background-color: #FFFFFF;
+    position: absolute;
+    width: 55%;
+    height: 100vh;
+    margin-left: 45%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.center {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    position: relative;
+}
+
+.logo {
+    position: absolute;
+    top: 300px;
+    left: 20%;
+    transform: translate(-50%);
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: hsla(0, 0%, 0%, 0.5); /* Black with 50% transparency */
+    padding: 20px;
+    border-radius: 2px;
+    width: 42%;
+}
+
+.logo img {
+    max-width: 100%;
+    height: auto;
+    padding: 20px;
+}
+
+p {
+    margin-top: 100px;
+    margin-left: 20px;
+}    
+
+h2 {
+    margin-left: 20px;
+}
+
+.container-1 {
+    margin-left: 20px;
+}
+
+.container-1 p {
+    margin-top: 60px;
+}
+
+.white2 {
+    background-color: #F5F5DC;
+    height: auto;
+    width: calc(100% - 40px);
+    padding: 10px;
+    margin-top: 50px;
+    box-sizing: border-box;
+}
+
+.first-p p {
+    margin-top: 120px;
+}
+
+input[type="submit"] {
+    border: none;
+    padding: 20px 32px;
+    margin-left: 20px;
+    border-radius: 10px;
+    background-color: #596D48;
+    color: white;
+}
+
+#buttonp {
+    margin-top: 20px;
+}
+
+form {
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    box-sizing: border-box;
+}
+
+form div {
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: block;
+    color: #333;
+}
+
+input[type="text"], input[type="password"], input[type="email"], input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus {
+    border-color: blue;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 255, 0.5);
+}
+
+input[type="password"]:invalid {
+    border-color: red;
+}
+
+@media screen and (max-width: 768px) {
+    .white-background {
+        width: 70%;
+        left: 30%;
+    }
+
+    .logo {
+        top: 5%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .white-background {
+        width: 90%;
+        left: 10%;
+    }
+
+    .logo {
+        top: 0;
+        width: 80%;
+    }
+
+    form {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+<body>
+<div class="center">
+    <div class="background-image"></div>
+    <div class="white-background">
+        <div class="first-p">
+            <p style="color: black; font-size: 20px;">
+                <strong>This is not a real online service! You know you need something like this
+                in your life to help you realize your deepest dreams. Sign up now to get started.
+                <br><br>
+                You know <i>you</i> want to.</p>
+            </strong>
+        </div>
+        <div class="white2">
+            <h2 style="font-size: 20px;">Let's do this!</h2> 
+            <form id="signupForm">
+                <div>
+                    <label for="fname">FIRST NAME:</label>
+                    <input type="text" id="fname" name="fname" required>
+                </div>
+                <div>
+                    <label for="lname">LAST NAME:</label>
+                    <input type="text" id="lname" name="lname" required>
+                </div>
+                <div class="full-width">
+                    <label for="email">EMAIL:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="password">PASSWORD:</label>
+                    <input type="password" id="password" name="password" pattern=".{8,}" required>
+                </div>
+                <div>
+                    <label for="phone">PHONE NUMBER:</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div>
+                    <label for="confirm-password">CONFIRM PASSWORD:</label>
+                    <input type="password" id="confirm-password" name="confirm-password" pattern=".{8,}" required>
+                </div>
+                <input type="submit" value="Create Account">
+            </form>
+        </div>
+        <p id="buttonp">Already have an account? <span style="color: green;">Log in</span></p>
+    </div>
+</div>
+<div class="logo">
+    <img src="/odin-lined.png">
+</div>
+
+<script>
+document.getElementById('signupForm').addEventListener('submit', function(event) {
+    var password = document.getElementById('password').value;
+    var confirmPassword = document.getElementById('confirm-password').value;
+    
+    if (password !== confirmPassword) {
+        event.preventDefault();
+        alert('Passwords do not match.');
+    } else {
+        alert('Form submitted successfully!');
+    }
+});
+</script>
+</body>
+</html>
